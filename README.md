@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Service Device Tracker (Beta)
 
 A modern, full-stack application for tracking device repairs, managing technicians, and keeping customers informed via SMS/WhatsApp.
@@ -74,3 +75,6 @@ docker-compose up -d --build
 
 ## 📝 License
 MIT
+=======
+# servicedevicetrack
+>>>>>>> 485f48249c7b226bb2e13995458bda600e34cbc5
