@@ -76,5 +76,4 @@ docker-compose up -d --build
 ## 📝 License
 MIT
 =======
-# servicedevicetrack
->>>>>>> 485f48249c7b226bb2e13995458bda600e34cbc5
+
