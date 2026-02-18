@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  role      String   @default("TECHNICIAN") // ADMIN or TECHNICIAN
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Device {
+  id            String   @id @default(cuid())
+  customerName  String
+  customerPhone String
+  brand         String
+  model         String
+  serialNo      String
+  description   String
+  status        String   @default("RECEIVED") // RECEIVED, REPAIRING, READY, DELIVERED
+  repairNotes   String?
+  repairCost    Float?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model NotificationLog {
+  id        String   @id @default(cuid())
+  deviceId  String
+  type      String   // SMS, WHATSAPP, VIBER
+  status    String   // SENT, FAILED
+  sentAt    DateTime @default(now())
+}
+
+model CompanyInfo {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  address   String?
+  email     String?
+  website   String?
+  enableSMS      Boolean  @default(false)
+  infobipApiKey  String?
+  infobipBaseUrl String?
+  infobipSender  String?
+  updatedAt      DateTime @updatedAt
+}
